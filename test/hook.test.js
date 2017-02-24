@@ -25,8 +25,27 @@ tape('runs basic logging messages', (t) => {
           { tags: ['error', 'blah'], message: 'message with error tag' },
           { tags: ['obj'], message: { message: 'simple object' } }
         ]);
-        server.stop(t.end);
+        const log2 = Logr.createLogger({
+          type: 'logrHook',
+          reporters: {
+            logrHook: {
+              reporter: require('../'),
+              options: {
+                endpoint: 'http://localhost:8080/route2'
+              }
+            }
+          }
+        });
+        log2('message for route2');
       }
+    }
+  });
+  server.route({
+    method: 'POST',
+    path: '/route2',
+    handler: (request, reply) => {
+      t.deepEqual(request.payload, { tags: [], message: 'message for route2' });
+      server.stop(t.end);
     }
   });
   server.start(() => {
