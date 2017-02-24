@@ -1,0 +1,35 @@
+{
+  "name": "logr-hook",
+  "version": "0.0.1",
+  "description": "route calls to logr to a web hook",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firstandthird/logr-hook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firstandthird/logr-hook/issues"
+  },
+  "homepage": "https://github.com/firstandthird/logr-hook",
+  "dependencies": {
+    "logr": "^1.19.0"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "eslint": "^3.4.0",
+    "eslint-config-firstandthird": "^3.0.2",
+    "eslint-plugin-import": "^2.2.0",
+    "hapi": "^16.0.2",
+    "lab": "^11.2.1"
+  },
+  "eslintConfig": {
+    "extends": "firstandthird"
+  },
+  "keywords": [
+    "hapi",
+    "password"
+  ],
+  "scripts": {
+    "test": "lab -e test"
+  }
+}
