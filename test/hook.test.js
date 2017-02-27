@@ -53,7 +53,10 @@ tape('runs basic logging messages', (t) => {
       type: 'logrHook',
       reporters: {
         logrHook: {
-          reporter: require('../')
+          reporter: require('../'),
+          options: {
+            endpoint: 'http://localhost:8080/'
+          }
         }
       }
     });
